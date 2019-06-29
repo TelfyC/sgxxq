@@ -9,6 +9,14 @@ public class Manage {
     private String M_password;
     private int M_status;
 
+    public Manage(int m_id, String m_name, String m_grade, String m_password, int m_status) {
+        M_id = m_id;
+        M_name = m_name;
+        M_grade = m_grade;
+        M_password = m_password;
+        M_status = m_status;
+    }
+
     public int getM_id() {
         return M_id;
     }
