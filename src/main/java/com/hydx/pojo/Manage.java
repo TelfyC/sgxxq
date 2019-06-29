@@ -16,6 +16,10 @@ public class Manage {
         M_password = m_password;
         M_status = m_status;
     }
+    public Manage(String m_name,String m_password) {
+        M_name = m_name;
+        M_password = m_password;
+    }
 
     public int getM_id() {
         return M_id;

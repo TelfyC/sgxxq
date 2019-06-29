@@ -11,9 +11,9 @@ public class ManageDaoImpl extends Dbutils implements ManageDao {
     @Override
     public int addManage(Manage manage) {
         int count;
-        String sql = "insert into manage(M_name, M_grade, M_password, M_status) values (?,?,?,1)";
+        String sql = "insert into manage(M_name, M_password, M_status) values (?,?,1)";
         Object[] obj = new Object[]{
-                manage.getM_name(), manage.getM_grade(), manage.getM_password()
+                manage.getM_name(), manage.getM_password()
         };
         count = super.executeUpdate(sql, obj);
         System.out.println("count" + count);
@@ -21,9 +21,9 @@ public class ManageDaoImpl extends Dbutils implements ManageDao {
     }
 
     @Override
-    public int deleteManage(Manage manage) {
+    public int deleteManage(int M_id) {
         int count;
-        String sql = "delete from manage where M_id = " + manage.getM_id();
+        String sql = "delete from manage where M_id = " +M_id;
         count = super.executeUpdate(sql, null);
         System.out.println("count" + count);
         return count;

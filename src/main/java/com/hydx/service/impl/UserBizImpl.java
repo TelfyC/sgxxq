@@ -5,6 +5,7 @@ import com.hydx.dao.impl.UserDaoImpl;
 import com.hydx.pojo.User;
 import com.hydx.service.UserBiz;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class UserBizImpl implements UserBiz {
@@ -27,6 +28,21 @@ public class UserBizImpl implements UserBiz {
 
     @Override
     public User Login(String U_name, String U_password) {
+
         return null;
     }
+
+    public boolean deleteUser(int U_id)
+    {
+        UserDao userdao = new UserDaoImpl();
+        int count = userdao.deleteUser(U_id);
+        if(count>0)
+        {
+            return true;
+        }
+        else
+            return false;
+    }
+
+
 }

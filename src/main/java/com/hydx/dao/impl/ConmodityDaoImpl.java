@@ -7,7 +7,7 @@ import com.hydx.util.Dbutils;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ConmodityImpl extends Dbutils implements ConmodityDao {
+public class ConmodityDaoImpl extends Dbutils implements ConmodityDao {
     @Override
     public int addCon(Conmodity con) {
         int count;
@@ -20,10 +20,11 @@ public class ConmodityImpl extends Dbutils implements ConmodityDao {
         return count;
     }
 
+
     @Override
-    public int deleteCon(Conmodity con) {
+    public int deleteCon(int C_id) {
         int count;
-        String sql = "delete from conmodity where C_id = " + con.getC_id();
+        String sql = "delete from conmodity where C_id = " + C_id;
         count = super.executeUpdate(sql, null);
         System.out.println("count" + count);
         return count;
@@ -41,6 +42,14 @@ public class ConmodityImpl extends Dbutils implements ConmodityDao {
         }
         return null;
     }
+
+    @Override
+    public ResultSet getAllCon() {
+        String sql = "select * from conmodity";
+        ResultSet ret = super.excuteQuery(sql, null);
+        return ret;
+    }
+
 
     @Override
     public int updateCon(Conmodity con) {

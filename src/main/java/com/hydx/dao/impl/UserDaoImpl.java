@@ -21,10 +21,10 @@ public class UserDaoImpl extends Dbutils implements UserDao {
     }
 
     @Override
-    public int deleteUser(User user) {
+    public int deleteUser(int U_id) {
         int count;
-        String sql = "delete from user where U_id = " + user.getU_id();
-        count = super.executeUpdate(sql, null);
+        String sql = "delete from user where U_id ="+U_id;
+        count = super.executeUpdate(sql,null);
         System.out.println("count" + count);
         return count;
     }
@@ -34,7 +34,7 @@ public class UserDaoImpl extends Dbutils implements UserDao {
         int count;
         String sql = "update user set U_phone = ?, U_password = ? where U_id = " + user.getU_id();
         Object[] obj = new Object[]{user.getU_phone(), user.getU_password()};
-        count = super.executeUpdate(sql, obj);
+        count      = super.executeUpdate(sql, obj);
         System.out.println("count" + count);
         return count;
     }
@@ -51,4 +51,7 @@ public class UserDaoImpl extends Dbutils implements UserDao {
         }
         return null;
     }
+
+
+
 }
