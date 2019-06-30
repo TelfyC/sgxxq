@@ -20,7 +20,6 @@ public class ConmodityDaoImpl extends Dbutils implements ConmodityDao {
         return count;
     }
 
-
     @Override
     public int deleteCon(int C_id) {
         int count;

@@ -2,6 +2,7 @@ package com.hydx.servlet;
 
 import com.hydx.dao.impl.UserDaoImpl;
 import com.hydx.pojo.User;
+import com.hydx.util.JwtUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -16,6 +17,14 @@ public class Login extends HttpServlet {
         String U_name = req.getParameter("username");
         String U_password = req.getParameter("password");
         UserDaoImpl userDao = new UserDaoImpl();
-        //System.out.println(userDao.addUser(user));
+        User user = userDao.getUser(U_name, U_password);
+        if(user != null && user.getU_id() != 0){
+            resp.setStatus(200);
+            JwtUtils jwtUtils = new JwtUtils();
+            resp.getWriter().write("{\"token\":\""+jwtUtils.getToken(user)+"\"}");
+        }
+        else{
+            resp.setStatus(401);
+        }
     }
 }

@@ -1,11 +1,18 @@
 package com.hydx.test;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Scanner;
 
+import com.hydx.dao.ConmodityDao;
+import com.hydx.dao.impl.ConmodityDaoImpl;
 import com.hydx.pojo.Conmodity;
 import com.hydx.pojo.Manage;
+import com.hydx.pojo.User;
 import com.hydx.service.*;
 import com.hydx.service.impl.*;
+import com.hydx.util.JwtUtils;
+import io.jsonwebtoken.Jwts;
 
 public class UserUI {
     Scanner sc = new Scanner(System.in);
@@ -25,9 +32,9 @@ public class UserUI {
             case "2":
                 System.out.println("Please choose delete  Conmodity id");
                 int C_id = sc.nextInt();
-               ConmodityBiz conmodity1 = new ConmodityBizImpl();
-               conmodity1.deleteCon(C_id);
-               break;
+                ConmodityBiz conmodity1 = new ConmodityBizImpl();
+                conmodity1.deleteCon(C_id);
+                break;
 
             case "3":
                 System.out.println("Please choose delete  Manager id");
@@ -36,10 +43,29 @@ public class UserUI {
                 manage1.deleteManage(M_id);
                 break;
 
+            case "4":
+                UserBizImpl userBiz = new UserBizImpl();
+                User user1 = userBiz.Login();
+                JwtUtils jwtUtils = new JwtUtils();
+                jwtUtils.isVerify(jwtUtils.getToken(user1));
+                break;
             case "6":
-                System.out.println("show conmodity");
-                ConmodityBiz conmodity2 = new ConmodityBizImpl();
-                conmodity2.getAllCon();
+                System.out.println("show commodity");
+                ConmodityDao conmodity2 = new ConmodityDaoImpl();
+                ResultSet rs = conmodity2.getAllCon();
+                try {
+                    while (rs.next()) {
+                        Conmodity c = new Conmodity(rs.getInt(1),
+                                rs.getString(2),
+                                rs.getInt(3),
+                                rs.getString(4),
+                                rs.getInt(5),
+                                rs.getInt(6));
+                        System.out.println(c.toString());
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
                 break;
         }
     }

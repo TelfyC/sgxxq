@@ -27,9 +27,15 @@ public class UserBizImpl implements UserBiz {
     }
 
     @Override
-    public User Login(String U_name, String U_password) {
-
-        return null;
+    public User Login() {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入用户名：");
+        String U_name = sc.next();
+        System.out.println("请输入用户密码：");
+        String U_password = sc.next();
+        UserDaoImpl userDao = new UserDaoImpl();
+        User user = userDao.getUser(U_name, U_password);
+        return user;
     }
 
     public boolean deleteUser(int U_id)
