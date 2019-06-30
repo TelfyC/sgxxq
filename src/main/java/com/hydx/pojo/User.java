@@ -1,6 +1,5 @@
 package com.hydx.pojo;
 
-import com.sun.xml.internal.ws.api.ha.StickyFeature;
 
 public class User {
     private int U_id;
