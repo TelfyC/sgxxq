@@ -17,6 +17,14 @@ public class Conmodity {
         T_id = t_id;
     }
 
+    public Conmodity(String c_name, int c_price, String c_discription, int c_stock, int t_id) {
+        C_name = c_name;
+        C_price = c_price;
+        C_discription = c_discription;
+        C_stock = c_stock;
+        T_id = t_id;
+    }
+
     @Override
     public String toString() {
         return "Conmodity{" +

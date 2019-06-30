@@ -5,8 +5,8 @@ import java.sql.*;
 public class Dbutils {
     protected static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
     protected static final String UNAME = "root";
-    protected static final String UPWD = "12345o";
-    protected static final String URL = "jdbc:mysql://localhost:3306/shopping";
+    protected static final String UPWD = "123";
+    protected static final String URL = "jdbc:mysql://localhost:3307/shopping";
     protected static Connection con = null;
     protected static PreparedStatement ps = null;
     protected static ResultSet rs = null;
@@ -34,7 +34,7 @@ public class Dbutils {
             ps = con.prepareStatement(sql);
             if (null != obj) {
                 for (int i = 0; i < obj.length; i++) {
-                    ps.setObject(i + 1, obj[i]);
+                    ps.setObject(1 + i, obj[i]);
                 }
             }
             count = ps.executeUpdate();
