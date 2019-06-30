@@ -30,6 +30,13 @@ public class UserDaoImpl extends Dbutils implements UserDao {
     }
 
     @Override
+    public ResultSet getAllUser() {
+        String sql = "select * from user";
+        ResultSet rs = super.excuteQuery(sql, null);
+        return rs;
+    }
+
+    @Override
     public int updateUser(User user) {
         int count;
         String sql = "update user set U_phone = ?, U_password = ? where U_id = " + user.getU_id();
@@ -55,6 +62,4 @@ public class UserDaoImpl extends Dbutils implements UserDao {
         }
         return null;
     }
-
-
 }

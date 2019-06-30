@@ -12,6 +12,7 @@ import java.io.IOException;
 public class Register extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        System.out.println("Register");
         resp.setHeader("Access-Control-Allow-Origin", "*");
         String U_name = req.getParameter("username");
         String U_password = req.getParameter("password");

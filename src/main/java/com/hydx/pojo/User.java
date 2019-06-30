@@ -10,13 +10,12 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "U_id=" + U_id +
-                ", U_name='" + U_name + '\'' +
-                ", U_phone='" + U_phone + '\'' +
-                ", U_password='" + U_password + '\'' +
-                ", U_state=" + U_state +
-                '}';
+        return "\"User\":{" +
+                "\"U_id\":\"" + U_id +
+                "\", \"U_name\":\"" + U_name + "\"" +
+                ", \"U_phone\":\"" + U_phone + "\"" +
+                ", \"U_state\":\"" + U_state +
+                "\"}";
     }
 
     public int getU_id() {
