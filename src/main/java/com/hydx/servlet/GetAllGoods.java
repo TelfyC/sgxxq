@@ -1,10 +1,7 @@
 package com.hydx.servlet;
 
 import com.hydx.dao.ConmodityDao;
-import com.hydx.dao.ManageDao;
 import com.hydx.dao.impl.ConmodityDaoImpl;
-import com.hydx.dao.impl.ManageDaoImpl;
-import com.hydx.pojo.Conmodity;
 import com.hydx.util.JwtUtils;
 
 import javax.servlet.ServletException;
@@ -51,7 +48,7 @@ public class GetAllGoods extends HttpServlet {
         }
         res += "]";
         //res = res.substring(0, res.length()-1);
-        System.out.println(res);
+        //System.out.println(res);
         resp.setStatus(200);
         resp.getWriter().write(res);
     }

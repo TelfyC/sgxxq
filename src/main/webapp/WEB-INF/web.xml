@@ -17,6 +17,14 @@
         <servlet-class>com.hydx.servlet.GetAllGoods</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>DeleteGoods</servlet-name>
+        <servlet-class>com.hydx.servlet.DeleteGoods</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>UpdateGoods</servlet-name>
+        <servlet-class>com.hydx.servlet.UpdateGoods</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>DeleteUser</servlet-name>
         <servlet-class>com.hydx.servlet.DeleteUser</servlet-class>
     </servlet>
@@ -32,9 +40,25 @@
         <servlet-name>GetAllManager</servlet-name>
         <servlet-class>com.hydx.servlet.GetAllManager</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>AddGoods</servlet-name>
+        <servlet-class>com.hydx.servlet.AddGoods</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddGoods</servlet-name>
+        <url-pattern>/addgoods</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateGoods</servlet-name>
+        <url-pattern>/updategoods</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GetAllGoods</servlet-name>
         <url-pattern>/getallgoods</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteGoods</servlet-name>
+        <url-pattern>/deletegoods</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GetAllManager</servlet-name>

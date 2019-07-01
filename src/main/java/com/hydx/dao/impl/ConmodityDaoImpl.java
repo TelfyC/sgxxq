@@ -11,9 +11,9 @@ public class ConmodityDaoImpl extends Dbutils implements ConmodityDao {
     @Override
     public int addCon(Conmodity con) {
         int count;
-        String sql = "insert into user(C_name, C_price, C_discription, C_stock, T_id) values (?,?,?,?,?,?)";
+        String sql = "insert into conmodity (C_name, C_price, C_discription, C_stock, T_id) values (?,?,?,?,?)";
         Object[] obj = new Object[]{
-                con.getC_name(), con.getC_price(), con.getC_price(), con.getC_discription(), con.getC_stock(), con.getT_id()
+                con.getC_name(), con.getC_price(), con.getC_discription(), con.getC_stock(), con.getT_id()
         };
         count = super.executeUpdate(sql, obj);
         System.out.println("count" + count);
