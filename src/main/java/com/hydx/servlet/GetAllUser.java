@@ -27,21 +27,22 @@ public class GetAllUser extends HttpServlet {
         String res = "[";
         try {
             while (rs.next()) {
-                res += "{'userid':'";
+                res += "{\"userid\":\"";
                 res += rs.getInt(1);
-                res += "','username':'";
+                res += "\",\"username\":\"";
                 res += rs.getString(2);
-                res += "','userphone':'";
+                res += "\",\"userphone\":\"";
                 res += rs.getString(3);
-                res += "','userstate':'";
+                res += "\",\"userstate\":\"";
                 res += rs.getInt(5);
-                res += "'},";
+                res += "\"},";
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
         res += "]";
-        System.out.println(res);
+        //res = res.substring(0, res.length()-1);
+        //System.out.println(res);
         resp.setStatus(200);
         resp.getWriter().write(res);
     }

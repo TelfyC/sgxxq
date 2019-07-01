@@ -10,4 +10,5 @@ public interface UserDao {
     public int updateUser(User user);
     public int deleteUser(int U_id);
     public ResultSet getAllUser();
+    public int changeState(int U_id, int U_state);
 }

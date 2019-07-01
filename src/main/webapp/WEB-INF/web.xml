@@ -17,9 +17,17 @@
         <servlet-class>com.hydx.servlet.DeleteUser</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>ChangeUserState</servlet-name>
+        <servlet-class>com.hydx.servlet.ChangeUserState</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>GetAllUser</servlet-name>
         <servlet-class>com.hydx.servlet.GetAllUser</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeUserState</servlet-name>
+        <url-pattern>/changeuserstate</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>DeleteUser</servlet-name>
         <url-pattern>/deleteuser</url-pattern>

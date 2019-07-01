@@ -37,6 +37,16 @@ public class UserDaoImpl extends Dbutils implements UserDao {
     }
 
     @Override
+    public int changeState(int U_id, int U_state) {
+        int count;
+        String sql = "update user set U_status = ? where U_id = ?";
+        Object[] obj = new Object[]{U_state, U_id};
+        count = super.executeUpdate(sql, obj);
+        System.out.println("count" + count);
+        return count;
+    }
+
+    @Override
     public int updateUser(User user) {
         int count;
         String sql = "update user set U_phone = ?, U_password = ? where U_id = " + user.getU_id();
