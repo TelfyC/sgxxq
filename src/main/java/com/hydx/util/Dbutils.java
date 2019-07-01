@@ -6,7 +6,7 @@ public class Dbutils {
     protected static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
     protected static final String UNAME = "root";
     protected static final String UPWD = "12345o";
-    protected static final String URL = "jdbc:mysql://localhost:3306/shopping";
+    protected static final String URL = "jdbc:mysql://localhost:3306/shopping?characterEncoding=utf8";
     protected static Connection con = null;
     protected static PreparedStatement ps = null;
     protected static ResultSet rs = null;

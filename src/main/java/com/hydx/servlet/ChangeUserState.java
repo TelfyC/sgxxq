@@ -14,7 +14,9 @@ public class ChangeUserState extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("ChangeUserState");
+        req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
+        resp.setCharacterEncoding( "UTF-8");
         if (req.getParameter("token") != null && !JwtUtils.isVerify(req.getParameter("token"))) {
             resp.setStatus(401);
             return;

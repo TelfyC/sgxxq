@@ -13,6 +13,10 @@
         <servlet-class>com.hydx.servlet.Login</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>GetAllGoods</servlet-name>
+        <servlet-class>com.hydx.servlet.GetAllGoods</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>DeleteUser</servlet-name>
         <servlet-class>com.hydx.servlet.DeleteUser</servlet-class>
     </servlet>
@@ -24,6 +28,18 @@
         <servlet-name>GetAllUser</servlet-name>
         <servlet-class>com.hydx.servlet.GetAllUser</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetAllManager</servlet-name>
+        <servlet-class>com.hydx.servlet.GetAllManager</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetAllGoods</servlet-name>
+        <url-pattern>/getallgoods</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetAllManager</servlet-name>
+        <url-pattern>/getallmanager</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ChangeUserState</servlet-name>
         <url-pattern>/changeuserstate</url-pattern>

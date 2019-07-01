@@ -1,6 +1,7 @@
 package com.hydx.servlet;
 
-import com.hydx.dao.impl.UserDaoImpl;
+import com.hydx.dao.ManageDao;
+import com.hydx.dao.impl.ManageDaoImpl;
 import com.hydx.util.JwtUtils;
 
 import javax.servlet.ServletException;
@@ -11,10 +12,10 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class GetAllUser extends HttpServlet {
+public class GetAllManager extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("getAlluser");
+        System.out.println("getAllManager");
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setCharacterEncoding( "UTF-8");
@@ -24,18 +25,18 @@ public class GetAllUser extends HttpServlet {
             resp.setStatus(401);
             return;
         }
-        UserDaoImpl userDao = new UserDaoImpl();
-        ResultSet rs = userDao.getAllUser();
+        ManageDao manageDao = new ManageDaoImpl();
+        ResultSet rs = manageDao.getAllManager();
         String res = "[";
         try {
             while (rs.next()) {
-                res += "{\"userid\":\"";
+                res += "{\"managerid\":\"";
                 res += rs.getInt(1);
-                res += "\",\"username\":\"";
+                res += "\",\"managername\":\"";
                 res += rs.getString(2);
-                res += "\",\"userphone\":\"";
-                res += rs.getString(3);
-                res += "\",\"userstate\":\"";
+                res += "\",\"managergrade\":\"";
+                res += rs.getInt(3);
+                res += "\",\"managerstate\":\"";
                 res += rs.getInt(5);
                 res += "\"},";
             }
@@ -44,7 +45,7 @@ public class GetAllUser extends HttpServlet {
         }
         res += "]";
         //res = res.substring(0, res.length()-1);
-        //System.out.println(res);
+        System.out.println(res);
         resp.setStatus(200);
         resp.getWriter().write(res);
     }

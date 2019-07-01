@@ -21,6 +21,13 @@ public class ManageDaoImpl extends Dbutils implements ManageDao {
     }
 
     @Override
+    public ResultSet getAllManager() {
+        String sql = "select * from manage";
+        ResultSet rs = super.excuteQuery(sql, null);
+        return rs;
+    }
+
+    @Override
     public int deleteManage(int M_id) {
         int count;
         String sql = "delete from manage where M_id = " +M_id;

@@ -14,7 +14,9 @@ public class Login extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         System.out.println("Login");
+        req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
+        resp.setCharacterEncoding( "UTF-8");
         String U_name = req.getParameter("username");
         String U_password = req.getParameter("password");
         UserDaoImpl userDao = new UserDaoImpl();
