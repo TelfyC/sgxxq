@@ -44,6 +44,30 @@
         <servlet-name>AddGoods</servlet-name>
         <servlet-class>com.hydx.servlet.AddGoods</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>GetAllOrder</servlet-name>
+        <servlet-class>com.hydx.servlet.GetAllOrder</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DeleteOrder</servlet-name>
+        <servlet-class>com.hydx.servlet.DeleteOrder</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChangeOrderState</servlet-name>
+        <servlet-class>com.hydx.servlet.ChangeOrderState</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangeOrderState</servlet-name>
+        <url-pattern>/changeorderstate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DeleteOrder</servlet-name>
+        <url-pattern>/deleteorder</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GetAllOrder</servlet-name>
+        <url-pattern>/getallorder</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>AddGoods</servlet-name>
         <url-pattern>/addgoods</url-pattern>

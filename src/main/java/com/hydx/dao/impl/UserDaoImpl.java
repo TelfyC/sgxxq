@@ -47,6 +47,24 @@ public class UserDaoImpl extends Dbutils implements UserDao {
     }
 
     @Override
+    public User getUser(int U_id) {
+        String sql = "select * from user where U_id = ?";
+        Object[] obj = new Object[]{U_id};
+        ResultSet ret = super.excuteQuery(sql, obj);
+        if (ret != null) {
+            try {
+                ret.next();
+                return new User(ret.getInt(1), ret.getString(2), ret.getString(3),
+                        ret.getString(4), ret.getInt(5));
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+
+    @Override
     public int updateUser(User user) {
         int count;
         String sql = "update user set U_phone = ?, U_password = ? where U_id = " + user.getU_id();

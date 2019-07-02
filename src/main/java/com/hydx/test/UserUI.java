@@ -7,12 +7,10 @@ import java.util.Scanner;
 import com.hydx.dao.ConmodityDao;
 import com.hydx.dao.impl.ConmodityDaoImpl;
 import com.hydx.pojo.Conmodity;
-import com.hydx.pojo.Manage;
 import com.hydx.pojo.User;
 import com.hydx.service.*;
 import com.hydx.service.impl.*;
 import com.hydx.util.JwtUtils;
-import io.jsonwebtoken.Jwts;
 
 public class UserUI {
     Scanner sc = new Scanner(System.in);

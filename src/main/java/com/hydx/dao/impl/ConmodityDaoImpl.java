@@ -34,6 +34,7 @@ public class ConmodityDaoImpl extends Dbutils implements ConmodityDao {
         String sql = "select * from conmodity where C_id = " + C_id;
         ResultSet ret = super.excuteQuery(sql, null);
         try {
+            ret.next();
             return new Conmodity(ret.getInt(1), ret.getString(2), ret.getInt(3),
                     ret.getString(4), ret.getInt(5), ret.getInt(6));
         } catch (SQLException e) {
