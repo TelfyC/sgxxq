@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="318542e4-fd53-4498-b790-f2f1d4c5f7a6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/LoginA.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hydx/dao/impl/ManageDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hydx/dao/impl/ManageDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hydx/pojo/Manage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hydx/pojo/Manage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/AddGoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/AddGoods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/ChangeOrderState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/ChangeOrderState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/ChangeUserState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/ChangeUserState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/DeleteGoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/DeleteGoods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/DeleteOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/DeleteOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/DeleteUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/DeleteUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/GetAllManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/GetAllManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/GetAllOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/GetAllOrder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/GetAllUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/GetAllUser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/UpdateGoods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hydx/servlet/UpdateGoods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/hydx/util/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/hydx/util/JwtUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-    </list>
+    <list default="true" id="318542e4-fd53-4498-b790-f2f1d4c5f7a6" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -93,18 +76,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/hydx/servlet/DeleteGoods.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="380">
-              <caret line="20" column="141" selection-start-line="20" selection-start-column="141" selection-end-line="20" selection-end-column="141" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hydx/servlet/DeleteOrder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="296">
@@ -128,11 +99,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/hydx/servlet/GetAllGoods.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+            <state relative-caret-position="950">
+              <caret line="50" column="34" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/hydx/dao/ConmodityDao.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -515,12 +498,18 @@
       <option name="project" value="LOCAL" />
       <updated>1562032629789</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="添加权限管理">
+      <created>1562044540616</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1562044540616</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
@@ -531,10 +520,10 @@
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="1" sideWeight="0.49865952" weight="0.3286119" />
-      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.29289544" side_tool="true" weight="0.31586403" />
+      <window_info anchor="bottom" id="Event Log" order="2" sideWeight="0.2935657" side_tool="true" weight="0.31586403" />
       <window_info anchor="bottom" id="Message" order="3" />
       <window_info anchor="bottom" id="Find" order="4" sideWeight="0.49731904" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="5" sideWeight="0.70710456" visible="true" weight="0.31586403" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" sideWeight="0.7064343" visible="true" weight="0.31586403" />
       <window_info anchor="bottom" id="Debug" order="6" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
@@ -558,7 +547,8 @@
     <MESSAGE value="add GetAllManager、Goods,fix encode problem" />
     <MESSAGE value="add add、deletegoods" />
     <MESSAGE value="add Order" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Order" />
+    <MESSAGE value="添加权限管理" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加权限管理" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hydx/dao/impl/Conmodity.java" />
@@ -673,16 +663,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="11" column="25" lean-forward="true" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/hydx/dao/ConmodityDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -984,8 +964,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/hydx/servlet/GetAllGoods.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        <state relative-caret-position="950">
+          <caret line="50" column="34" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/hydx/dao/ConmodityDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
