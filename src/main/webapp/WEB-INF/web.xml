@@ -56,6 +56,14 @@
         <servlet-name>ChangeOrderState</servlet-name>
         <servlet-class>com.hydx.servlet.ChangeOrderState</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginA</servlet-name>
+        <servlet-class>com.hydx.servlet.LoginA</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LoginA</servlet-name>
+        <url-pattern>/login_admin</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>ChangeOrderState</servlet-name>
         <url-pattern>/changeorderstate</url-pattern>

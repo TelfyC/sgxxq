@@ -48,9 +48,11 @@ public class ManageDaoImpl extends Dbutils implements ManageDao {
 
     @Override
     public Manage getManage(String M_name, String M_pwd) {
-        String sql = "select * from user where M_name = " + M_name + " and M_pwd = " + M_pwd;
-        ResultSet ret = super.excuteQuery(sql, null);
+        String sql = "select * from manage where M_name = ? and M_password = ?";
+        Object[] obj = new Object[]{M_name, M_pwd};
+        ResultSet ret = super.excuteQuery(sql, obj);
         try {
+            ret.next();
             return new Manage(ret.getInt(1), ret.getString(2),
                     ret.getString(3),ret.getString(4),ret.getInt(5));
         } catch (SQLException e) {

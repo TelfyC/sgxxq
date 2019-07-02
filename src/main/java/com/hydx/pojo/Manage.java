@@ -9,6 +9,15 @@ public class Manage {
     private String M_password;
     private int M_status;
 
+    @Override
+    public String toString() {
+        return "\"Manage\":{" +
+                "\"M_id\":\"" + M_id +
+                "\", \"M_name\":\"" + M_name +
+                "\", \"M_grade\":\"" + M_grade +
+                "\"}";
+    }
+
     public Manage(int m_id, String m_name, String m_grade, String m_password, int m_status) {
         M_id = m_id;
         M_name = m_name;
@@ -16,7 +25,8 @@ public class Manage {
         M_password = m_password;
         M_status = m_status;
     }
-    public Manage(String m_name,String m_password) {
+
+    public Manage(String m_name, String m_password) {
         M_name = m_name;
         M_password = m_password;
     }

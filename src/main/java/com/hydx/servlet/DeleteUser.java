@@ -16,7 +16,7 @@ public class DeleteUser extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setCharacterEncoding( "UTF-8");
-        if (req.getParameter("token") != null && !JwtUtils.isVerify(req.getParameter("token"))) {
+        if (req.getParameter("token") != null && !JwtUtils.isVerify(req.getParameter("token"))|| !JwtUtils.isAdmin(req.getParameter("token"))) {
             resp.setStatus(401);
             return;
         }

@@ -20,7 +20,7 @@ public class GetAllUser extends HttpServlet {
         resp.setCharacterEncoding( "UTF-8");
         //System.out.println(req.getParameter("token"));
         //System.out.println(JwtUtils.isVerify(req.getParameter("token")));
-        if (!JwtUtils.isVerify(req.getParameter("token"))) {
+        if (!JwtUtils.isVerify(req.getParameter("token"))|| !JwtUtils.isAdmin(req.getParameter("token"))) {
             resp.setStatus(401);
             return;
         }

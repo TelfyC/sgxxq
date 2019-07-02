@@ -3,6 +3,7 @@ package com.hydx.servlet;
 import com.hydx.dao.ManageDao;
 import com.hydx.dao.impl.ManageDaoImpl;
 import com.hydx.util.JwtUtils;
+import io.jsonwebtoken.Jwt;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +22,7 @@ public class GetAllManager extends HttpServlet {
         resp.setCharacterEncoding( "UTF-8");
         //System.out.println(req.getParameter("token"));
         //System.out.println(JwtUtils.isVerify(req.getParameter("token")));
-        if (!JwtUtils.isVerify(req.getParameter("token"))) {
+        if (!JwtUtils.isVerify(req.getParameter("token")) || !JwtUtils.isAdmin(req.getParameter("token"))) {
             resp.setStatus(401);
             return;
         }
