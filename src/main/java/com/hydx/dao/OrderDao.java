@@ -9,7 +9,7 @@ public interface OrderDao {
     public int addOrder(Order order);
 
     public Order getOrder(int O_id);
-
+    public ResultSet getOrders(int U_id);
     public int deleteOrder(int O_id);
 
     public ResultSet getAllOrder();

@@ -29,6 +29,10 @@ public class UpdateGoods extends HttpServlet {
             int C_price = Integer.parseInt(req.getParameter("C_price"));
             int C_stock = Integer.parseInt(req.getParameter("C_stock"));
             int T_id = Integer.parseInt(req.getParameter("T_id"));
+            if(C_stock<0){
+                resp.setStatus(400);
+                return;
+            }
             Conmodity conmodity = new Conmodity(C_id, C_name, C_price, C_disc, C_stock, T_id);
             ConmodityDao conmodityDao = new ConmodityDaoImpl();
             //System.out.println(conmodityDao.toString());

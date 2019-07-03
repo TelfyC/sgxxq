@@ -9,25 +9,24 @@ public class Order {
     private int O_amount;
     private int O_money;
 
-    public Order(int u_id, int c_id, String o_time, int o_amount, int o_money) {
+    public Order(int u_id, int c_id, int o_amount, int o_money) {
         U_id = u_id;
         C_id = c_id;
-        O_time = o_time;
         O_amount = o_amount;
         O_money = o_money;
     }
 
     @Override
     public String toString() {
-        return "Order{" +
-                "O_id=" + O_id +
-                ", U_id=" + U_id +
-                ", C_id=" + C_id +
-                ", O_time='" + O_time + '\'' +
-                ", O_state=" + O_state +
-                ", O_amount=" + O_amount +
-                ", O_money=" + O_money +
-                '}';
+        return "\"Order\":{" +
+                "\"O_id\":\"" + O_id +
+                "\", \"U_id\":\"" + U_id +
+                "\", \"C_id\":\"" + C_id +
+                "\", \"O_time\":\"" + O_time +
+                "\", \"O_state\":\"" + O_state +
+                "\", \"O_amount\":\"" + O_amount +
+                "\", \"O_money\":\"" + O_money +
+                "\"}";
     }
 
     public int getO_id() {

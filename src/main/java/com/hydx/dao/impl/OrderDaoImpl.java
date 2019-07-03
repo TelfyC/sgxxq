@@ -12,7 +12,7 @@ public class OrderDaoImpl extends Dbutils implements OrderDao {
     @Override
     public int addOrder(Order order) {
         int count;
-        String sql = "insert into `order`(U_id, C_id, O_time, O_money, O_amount, O_state) values (?,?,?,?,?, 0)";
+        String sql = "insert into `order`(U_id, C_id, O_time, O_money, O_amount, O_state) values (?,?,?,?,?,1)";
         Object[] obj = new Object[]{
                 order.getU_id(), order.getC_id(), new Date(), order.getO_money(), order.getO_amount()};
         count = super.executeUpdate(sql, obj);
@@ -23,6 +23,14 @@ public class OrderDaoImpl extends Dbutils implements OrderDao {
     @Override
     public Order getOrder(int O_id) {
         return null;
+    }
+
+    @Override
+    public ResultSet getOrders(int U_id) {
+        String sql = "select * from `order` where U_id = ?";
+        Object[] obj = new Object[]{U_id};
+        ResultSet rs = super.excuteQuery(sql, obj);
+        return rs;
     }
 
     @Override

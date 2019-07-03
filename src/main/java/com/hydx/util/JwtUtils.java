@@ -15,7 +15,9 @@ public class JwtUtils {
 
     public String getToken(User user) {
         if (user != null) {
-            JwtBuilder jwtBuilder = Jwts.builder().setId(user.getU_id() + "").setSubject(user.getU_name())
+            Map<String, Object> chaims = new HashMap<String, Object>();
+            chaims.put("U_id", user.getU_id());
+            JwtBuilder jwtBuilder = Jwts.builder().setClaims(chaims).setId(user.getU_id() + "").setSubject(user.getU_name())
                     .setIssuedAt(new Date()).setExpiration(new Date(new Date().getTime() + (60 * 1000 * 60 * 24 * 7)))
                     .signWith(SignatureAlgorithm.HS256, KEY.getBytes());
             return jwtBuilder.compact();
@@ -45,7 +47,21 @@ public class JwtUtils {
             return false;
         }
         System.out.println(claims.getExpiration());
+        //System.out.println(claims.get("U_id"));
         return true;
+    }
+
+    static public int getUid(String token){
+        Claims claims;
+        try {
+            claims = Jwts.parser().setSigningKey(KEY.getBytes()).parseClaimsJws(token).getBody();
+        } catch (ExpiredJwtException e) {
+            e.printStackTrace();
+            return -1;
+        }
+        //System.out.println(claims.getExpiration());
+        //System.out.println(claims.get("U_id").toString());
+        return Integer.parseInt(claims.get("U_id").toString());
     }
 
     static public Boolean isAdmin(String token) {
@@ -57,7 +73,7 @@ public class JwtUtils {
             return false;
         }
         //String  s = ;
-        if(claims.get("grade") != null)
+        if (claims.get("grade") != null)
             return true;
         //System.out.println();
         return false;

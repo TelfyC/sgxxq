@@ -1,7 +1,9 @@
 package com.hydx.servlet;
 
 import com.hydx.dao.ConmodityDao;
+import com.hydx.dao.OrderDao;
 import com.hydx.dao.impl.ConmodityDaoImpl;
+import com.hydx.dao.impl.OrderDaoImpl;
 import com.hydx.util.JwtUtils;
 
 import javax.servlet.ServletException;
@@ -12,11 +14,10 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class GetAllGoods extends HttpServlet {
-
+public class GetOrders extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        System.out.println("GetAllGoods");
+        System.out.println("GetOrders");
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
         resp.setCharacterEncoding("UTF-8");
@@ -24,23 +25,26 @@ public class GetAllGoods extends HttpServlet {
             resp.setStatus(401);
             return;
         }
-        ConmodityDao conmodityDao = new ConmodityDaoImpl();
-        ResultSet rs = conmodityDao.getAllCon();
+        int U_id = JwtUtils.getUid(req.getParameter("token"));
+        OrderDao orderDao = new OrderDaoImpl();
+        ResultSet rs = orderDao.getOrders(U_id);
         String res = "[";
+        ConmodityDao conmodityDao = new ConmodityDaoImpl();
         try {
-            while (rs.next()) {
-                res += "{\"C_id\":\"";
+            while(rs.next()){
+                res += "{\"O_id\":\"";
                 res += rs.getInt(1);
-                res += "\",\"T_id\":\"";
-                res += rs.getInt(6);
-                res += "\",\"C_name\":\"";
-                res += rs.getString(2);
-                res += "\",\"C_price\":\"";
-                res += rs.getInt(3);
-                res += "\",\"C_stock\":\"";
-                res += rs.getInt(5);
-                res += "\",\"C_disc\":\"";
+                res += "\",\"O_time\":\"";
                 res += rs.getString(4);
+                res += "\",\"C_name\":\"";
+                int C_id = rs.getInt(3);
+                res += conmodityDao.getCon(C_id).getC_name();
+                res += "\",\"O_amount\":\"";
+                res += rs.getInt(7);
+                res += "\",\"O_state\":\"";
+                res += rs.getInt(6);
+                res += "\",\"O_money\":\"";
+                res += rs.getInt(5);
                 res += "\"},";
             }
         } catch (SQLException e) {
@@ -48,8 +52,6 @@ public class GetAllGoods extends HttpServlet {
             resp.setStatus(500);
         }
         res += "]";
-        //res = res.substring(0, res.length()-1);
-        //System.out.println(res);
         resp.setStatus(200);
         resp.getWriter().write(res);
     }

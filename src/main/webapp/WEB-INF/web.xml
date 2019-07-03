@@ -60,6 +60,22 @@
         <servlet-name>LoginA</servlet-name>
         <servlet-class>com.hydx.servlet.LoginA</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Purchase</servlet-name>
+        <servlet-class>com.hydx.servlet.Purchase</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GetOrders</servlet-name>
+        <servlet-class>com.hydx.servlet.GetOrders</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>GetOrders</servlet-name>
+        <url-pattern>/getorders</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Purchase</servlet-name>
+        <url-pattern>/purchase</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginA</servlet-name>
         <url-pattern>/login_admin</url-pattern>
