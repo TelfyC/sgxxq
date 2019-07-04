@@ -1,6 +1,7 @@
 package com.hydx.servlet;
 
 import com.hydx.dao.impl.UserDaoImpl;
+import com.hydx.util.Dbutils;
 import com.hydx.util.JwtUtils;
 
 import javax.servlet.ServletException;
@@ -17,10 +18,10 @@ public class GetAllUser extends HttpServlet {
         System.out.println("getAlluser");
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        resp.setCharacterEncoding( "UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         //System.out.println(req.getParameter("token"));
         //System.out.println(JwtUtils.isVerify(req.getParameter("token")));
-        if (!JwtUtils.isVerify(req.getParameter("token"))|| !JwtUtils.isAdmin(req.getParameter("token"))) {
+        if (!JwtUtils.isVerify(req.getParameter("token")) || !JwtUtils.isAdmin(req.getParameter("token"))) {
             resp.setStatus(401);
             return;
         }
@@ -41,6 +42,8 @@ public class GetAllUser extends HttpServlet {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            Dbutils.closeAll();
         }
         res += "]";
         //res = res.substring(0, res.length()-1);

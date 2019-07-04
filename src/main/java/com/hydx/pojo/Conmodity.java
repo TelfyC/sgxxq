@@ -3,12 +3,12 @@ package com.hydx.pojo;
 public class Conmodity {
     private int C_id;
     private String C_name;
-    private int C_price;
+    private double C_price;
     private String C_discription;
     private int C_stock;
     private int T_id;
 
-    public Conmodity(int c_id, String c_name, int c_price, String c_discription, int c_stock, int t_id) {
+    public Conmodity(int c_id, String c_name, double c_price, String c_discription, int c_stock, int t_id) {
         C_id = c_id;
         C_name = c_name;
         C_price = c_price;
@@ -17,7 +17,7 @@ public class Conmodity {
         T_id = t_id;
     }
 
-    public Conmodity(String c_name, int c_price, String c_discription, int c_stock, int t_id) {
+    public Conmodity(String c_name, double c_price, String c_discription, int c_stock, int t_id) {
         C_name = c_name;
         C_price = c_price;
         C_discription = c_discription;
@@ -61,11 +61,11 @@ public class Conmodity {
         T_id = t_id;
     }
 
-    public int getC_price() {
+    public double getC_price() {
         return C_price;
     }
 
-    public void setC_price(int c_price) {
+    public void setC_price(double c_price) {
         C_price = c_price;
     }
 

@@ -37,8 +37,10 @@ public class Purchase extends HttpServlet {
         while (C_id != -1) {
             ConmodityDao conmodityDao = new ConmodityDaoImpl();
             Conmodity conmodity = conmodityDao.getCon(C_id);
-            int money = conmodity.getC_price();
+            double money = conmodity.getC_price();
+            System.out.println(money);
             Order order = new Order(U_id, C_id, C_amount, money * C_amount);
+            //System.out.println(money*C_amount);
             if(conmodity.getC_stock() < 0 || conmodity.getC_stock() - C_amount<0){
                 resp.setStatus(400);
                 return;

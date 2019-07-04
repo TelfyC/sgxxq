@@ -16,15 +16,19 @@ public class Login extends HttpServlet {
         System.out.println("Login");
         req.setCharacterEncoding("UTF-8");
         resp.setHeader("Access-Control-Allow-Origin", "*");
-        resp.setCharacterEncoding( "UTF-8");
+        resp.setCharacterEncoding("UTF-8");
         String U_name = req.getParameter("username");
         String U_password = req.getParameter("password");
         UserDaoImpl userDao = new UserDaoImpl();
         User user = userDao.getUser(U_name, U_password);
         if (user != null && user.getU_id() != 0) {
-            resp.setStatus(200);
-            JwtUtils jwtUtils = new JwtUtils();
-            resp.getWriter().write("{\"token\":\"" + jwtUtils.getToken(user) + "\"," + user.toString() + "}");
+            if (user.getU_state() != 0) {
+                resp.setStatus(200);
+                JwtUtils jwtUtils = new JwtUtils();
+                resp.getWriter().write("{\"token\":\"" + jwtUtils.getToken(user) + "\"," + user.toString() + "}");
+            } else {
+                resp.setStatus(403);
+            }
         } else {
             resp.setStatus(401);
         }

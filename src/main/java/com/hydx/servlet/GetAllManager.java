@@ -2,6 +2,7 @@ package com.hydx.servlet;
 
 import com.hydx.dao.ManageDao;
 import com.hydx.dao.impl.ManageDaoImpl;
+import com.hydx.util.Dbutils;
 import com.hydx.util.JwtUtils;
 import io.jsonwebtoken.Jwt;
 
@@ -43,6 +44,8 @@ public class GetAllManager extends HttpServlet {
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            Dbutils.closeAll();
         }
         res += "]";
         //res = res.substring(0, res.length()-1);

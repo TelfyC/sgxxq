@@ -33,6 +33,7 @@ public class UserDaoImpl extends Dbutils implements UserDao {
     public ResultSet getAllUser() {
         String sql = "select * from user";
         ResultSet rs = super.excuteQuery(sql, null);
+        //super.closeAll();
         return rs;
     }
 
@@ -42,6 +43,7 @@ public class UserDaoImpl extends Dbutils implements UserDao {
         String sql = "update user set U_status = ? where U_id = ?";
         Object[] obj = new Object[]{U_state, U_id};
         count = super.executeUpdate(sql, obj);
+        //super.closeAll();
         System.out.println("count" + count);
         return count;
     }
@@ -58,6 +60,8 @@ public class UserDaoImpl extends Dbutils implements UserDao {
                         ret.getString(4), ret.getInt(5));
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+                Dbutils.closeAll();
             }
         }
         return null;
@@ -75,17 +79,37 @@ public class UserDaoImpl extends Dbutils implements UserDao {
     }
 
     @Override
+    public boolean userExist(String U_name) {
+        String sql = "select * from user where U_name = ?";
+        Object[] obj = new Object[]{U_name};
+        ResultSet ret = super.excuteQuery(sql, obj);
+        boolean flag = true;
+        try {
+            ret.last();
+            flag = (ret.getRow() == 0)?false:true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            super.closeAll();
+        }
+        return flag;
+    }
+
+    @Override
     public User getUser(String U_name, String U_pwd) {
         String sql = "select * from user where U_name = ? and U_password = ?";
         Object[] obj = new Object[]{U_name, U_pwd};
         ResultSet ret = super.excuteQuery(sql, obj);
         if (ret != null) {
             try {
-                ret.next();
-                return new User(ret.getInt(1), ret.getString(2), ret.getString(3),
-                        ret.getString(4), ret.getInt(5));
+                if (ret.next()) {
+                    return new User(ret.getInt(1), ret.getString(2), ret.getString(3),
+                            ret.getString(4), ret.getInt(5));
+                }
             } catch (SQLException e) {
                 e.printStackTrace();
+            } finally {
+                Dbutils.closeAll();
             }
         }
         return null;

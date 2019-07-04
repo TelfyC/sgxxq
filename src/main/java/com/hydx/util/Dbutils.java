@@ -46,7 +46,7 @@ public class Dbutils {
         return count;
     }
 
-    protected static void closeAll() {
+    public static void closeAll() {
         if (null != rs) {
             try {
                 rs.close();

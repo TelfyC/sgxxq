@@ -13,6 +13,6 @@ public interface OrderDao {
     public int deleteOrder(int O_id);
 
     public ResultSet getAllOrder();
-
+    public boolean UserOrderExist(int U_id);
     public int changeState(int O_id, int O_state);
 }

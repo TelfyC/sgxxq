@@ -2,6 +2,7 @@ package com.hydx.servlet;
 
 import com.hydx.dao.ConmodityDao;
 import com.hydx.dao.impl.ConmodityDaoImpl;
+import com.hydx.util.Dbutils;
 import com.hydx.util.JwtUtils;
 
 import javax.servlet.ServletException;
@@ -36,7 +37,7 @@ public class GetAllGoods extends HttpServlet {
                 res += "\",\"C_name\":\"";
                 res += rs.getString(2);
                 res += "\",\"C_price\":\"";
-                res += rs.getInt(3);
+                res += rs.getDouble(3);
                 res += "\",\"C_stock\":\"";
                 res += rs.getInt(5);
                 res += "\",\"C_disc\":\"";
@@ -46,6 +47,8 @@ public class GetAllGoods extends HttpServlet {
         } catch (SQLException e) {
             e.printStackTrace();
             resp.setStatus(500);
+        }finally {
+            Dbutils.closeAll();
         }
         res += "]";
         //res = res.substring(0, res.length()-1);

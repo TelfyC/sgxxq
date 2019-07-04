@@ -15,6 +15,7 @@ public class ConmodityDaoImpl extends Dbutils implements ConmodityDao {
         Object[] obj = new Object[]{
                 con.getC_name(), con.getC_price(), con.getC_discription(), con.getC_stock(), con.getT_id()
         };
+        //System.out.println(con.getC_price());
         count = super.executeUpdate(sql, obj);
         System.out.println("count" + count);
         return count;
@@ -35,10 +36,12 @@ public class ConmodityDaoImpl extends Dbutils implements ConmodityDao {
         ResultSet ret = super.excuteQuery(sql, null);
         try {
             ret.next();
-            return new Conmodity(ret.getInt(1), ret.getString(2), ret.getInt(3),
+            return new Conmodity(ret.getInt(1), ret.getString(2), ret.getDouble(3),
                     ret.getString(4), ret.getInt(5), ret.getInt(6));
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            Dbutils.closeAll();
         }
         return null;
     }
@@ -47,6 +50,7 @@ public class ConmodityDaoImpl extends Dbutils implements ConmodityDao {
     public ResultSet getAllCon() {
         String sql = "select * from conmodity";
         ResultSet ret = super.excuteQuery(sql, null);
+        //super.closeAll();
         return ret;
     }
 

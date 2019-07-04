@@ -5,6 +5,7 @@ import com.hydx.pojo.Order;
 import com.hydx.util.Dbutils;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
 
 public class OrderDaoImpl extends Dbutils implements OrderDao {
@@ -30,7 +31,25 @@ public class OrderDaoImpl extends Dbutils implements OrderDao {
         String sql = "select * from `order` where U_id = ?";
         Object[] obj = new Object[]{U_id};
         ResultSet rs = super.excuteQuery(sql, obj);
+        //super.closeAll();
         return rs;
+    }
+
+    @Override
+    public boolean UserOrderExist(int U_id) {
+        String sql = "select * from `order` where U_id = ?";
+        Object[] obj = new Object[]{U_id};
+        ResultSet ret = super.excuteQuery(sql, obj);
+        boolean flag = true;
+        try {
+            ret.last();
+            flag = (ret.getRow() == 0)?false:true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            super.closeAll();
+        }
+        return flag;
     }
 
     @Override
@@ -47,6 +66,7 @@ public class OrderDaoImpl extends Dbutils implements OrderDao {
     public ResultSet getAllOrder() {
         String sql = "select * from `order`";
         ResultSet rs = super.excuteQuery(sql, null);
+        //super.closeAll();
         return rs;
     }
 

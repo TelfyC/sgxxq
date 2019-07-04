@@ -1,5 +1,7 @@
 package com.hydx.servlet;
 
+import com.hydx.dao.OrderDao;
+import com.hydx.dao.impl.OrderDaoImpl;
 import com.hydx.dao.impl.UserDaoImpl;
 import com.hydx.util.JwtUtils;
 
@@ -23,6 +25,11 @@ public class DeleteUser extends HttpServlet {
         if(req.getParameter("userid") != null) {
             int U_id = Integer.parseInt(req.getParameter("userid"));
             UserDaoImpl userDao = new UserDaoImpl();
+            OrderDao orderDao = new OrderDaoImpl();
+            if(orderDao.UserOrderExist(U_id) == true){
+                resp.setStatus(403);
+                return;
+            }
             if (userDao.deleteUser(U_id) != 0) {
                 resp.setStatus(200);
                 return;

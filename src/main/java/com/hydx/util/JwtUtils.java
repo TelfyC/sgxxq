@@ -61,7 +61,8 @@ public class JwtUtils {
         }
         //System.out.println(claims.getExpiration());
         //System.out.println(claims.get("U_id").toString());
-        return Integer.parseInt(claims.get("U_id").toString());
+        Object U_id = claims.get("U_id");
+        return U_id == null? -1:Integer.parseInt(U_id.toString());
     }
 
     static public Boolean isAdmin(String token) {

@@ -68,6 +68,14 @@
         <servlet-name>GetOrders</servlet-name>
         <servlet-class>com.hydx.servlet.GetOrders</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>DeleteManager</servlet-name>
+        <servlet-class>com.hydx.servlet.DeleteManager</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteManager</servlet-name>
+        <url-pattern>/deletemanager</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>GetOrders</servlet-name>
         <url-pattern>/getorders</url-pattern>

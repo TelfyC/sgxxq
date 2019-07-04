@@ -4,6 +4,7 @@ import com.hydx.dao.ConmodityDao;
 import com.hydx.dao.OrderDao;
 import com.hydx.dao.impl.ConmodityDaoImpl;
 import com.hydx.dao.impl.OrderDaoImpl;
+import com.hydx.util.Dbutils;
 import com.hydx.util.JwtUtils;
 
 import javax.servlet.ServletException;
@@ -44,12 +45,14 @@ public class GetOrders extends HttpServlet {
                 res += "\",\"O_state\":\"";
                 res += rs.getInt(6);
                 res += "\",\"O_money\":\"";
-                res += rs.getInt(5);
+                res += rs.getDouble(5);
                 res += "\"},";
             }
         } catch (SQLException e) {
             e.printStackTrace();
             resp.setStatus(500);
+        }finally {
+            Dbutils.closeAll();
         }
         res += "]";
         resp.setStatus(200);

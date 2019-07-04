@@ -8,6 +8,7 @@ import com.hydx.dao.impl.OrderDaoImpl;
 import com.hydx.dao.impl.UserDaoImpl;
 import com.hydx.pojo.Conmodity;
 import com.hydx.pojo.User;
+import com.hydx.util.Dbutils;
 import com.hydx.util.JwtUtils;
 
 import javax.servlet.ServletException;
@@ -53,11 +54,13 @@ public class GetAllOrder extends HttpServlet {
                 res += "\",\"orderstate\":\"";
                 res += rs.getInt(6);
                 res += "\",\"paymoney\":\"";
-                res += rs.getInt(5);
+                res += rs.getDouble(5);
                 res += "\"},";
             }
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            Dbutils.closeAll();
         }
         res += "]";
         resp.setStatus(200);

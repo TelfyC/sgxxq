@@ -21,6 +21,11 @@ public class Register extends HttpServlet {
         String U_phone = req.getParameter("phone");
         User user = new User(U_name, U_phone, U_password);
         UserDaoImpl userDao = new UserDaoImpl();
+        if(userDao.userExist(U_name)){
+            resp.setStatus(418);
+            return;
+        }
         System.out.println(userDao.addUser(user));
+        resp.setStatus(200);
     }
 }

@@ -26,7 +26,7 @@ public class UpdateGoods extends HttpServlet {
             int C_id = Integer.parseInt(req.getParameter("C_id"));
             String C_name = req.getParameter("C_name");
             String C_disc = req.getParameter("C_disc");
-            int C_price = Integer.parseInt(req.getParameter("C_price"));
+            double C_price = Double.parseDouble(req.getParameter("C_price"));
             int C_stock = Integer.parseInt(req.getParameter("C_stock"));
             int T_id = Integer.parseInt(req.getParameter("T_id"));
             if(C_stock<0){

@@ -7,9 +7,9 @@ public class Order {
     private String O_time;
     private int O_state;
     private int O_amount;
-    private int O_money;
+    private double O_money;
 
-    public Order(int u_id, int c_id, int o_amount, int o_money) {
+    public Order(int u_id, int c_id, int o_amount, double o_money) {
         U_id = u_id;
         C_id = c_id;
         O_amount = o_amount;
@@ -77,11 +77,11 @@ public class Order {
         O_amount = o_amount;
     }
 
-    public int getO_money() {
+    public double getO_money() {
         return O_money;
     }
 
-    public void setO_money(int o_money) {
+    public void setO_money(double o_money) {
         O_money = o_money;
     }
 }

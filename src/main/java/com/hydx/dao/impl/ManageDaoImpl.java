@@ -24,13 +24,14 @@ public class ManageDaoImpl extends Dbutils implements ManageDao {
     public ResultSet getAllManager() {
         String sql = "select * from manage";
         ResultSet rs = super.excuteQuery(sql, null);
+        //super.closeAll();
         return rs;
     }
 
     @Override
     public int deleteManage(int M_id) {
         int count;
-        String sql = "delete from manage where M_id = " +M_id;
+        String sql = "delete from manage where M_id = " + M_id;
         count = super.executeUpdate(sql, null);
         System.out.println("count" + count);
         return count;
@@ -52,11 +53,14 @@ public class ManageDaoImpl extends Dbutils implements ManageDao {
         Object[] obj = new Object[]{M_name, M_pwd};
         ResultSet ret = super.excuteQuery(sql, obj);
         try {
-            ret.next();
-            return new Manage(ret.getInt(1), ret.getString(2),
-                    ret.getString(3),ret.getString(4),ret.getInt(5));
+            if (ret.next()) {
+                return new Manage(ret.getInt(1), ret.getString(2),
+                        ret.getString(3), ret.getString(4), ret.getInt(5));
+            }
         } catch (SQLException e) {
             e.printStackTrace();
+        } finally {
+            Dbutils.closeAll();
         }
         return null;
     }

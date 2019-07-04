@@ -26,6 +26,8 @@ public class Demo2 {
             db1.closeAll();
         } catch (SQLException e) {
             e.printStackTrace();
+        }finally {
+            Dbutils.closeAll();
         }
     }
 }
